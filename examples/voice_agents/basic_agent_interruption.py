@@ -75,7 +75,7 @@ def prewarm(proc: JobProcess):
 async def entrypoint(ctx: JobContext):
     ctx.log_context_fields = {"room": ctx.room.name}
 
-    # 🚫 Disable framework auto-interruptions
+    # Disable framework auto-interruptions
     session = AgentSession(
         stt="assemblyai/universal-streaming:en",
         llm="openai/gpt-4.1-mini",
@@ -86,7 +86,7 @@ async def entrypoint(ctx: JobContext):
 
         preemptive_generation=True,
 
-        # 🔑 CRITICAL FLAGS
+        # CRITICAL FLAGS
         allow_interruptions=False,
         discard_audio_if_uninterruptible=False,
     )
@@ -144,7 +144,7 @@ async def entrypoint(ctx: JobContext):
         )
 
         if decision == InterruptionDecision.IGNORE:
-            # 🔑 Prevent fillers from becoming a user turn
+            # Prevent fillers from becoming a user turn
             session.clear_user_turn()
             logger.info("Ignored filler/backchannel: %r", text)
             return
