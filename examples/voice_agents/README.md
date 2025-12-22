@@ -102,7 +102,7 @@ No changes were made to **LiveKit’s VAD** or turn detection models - instead, 
 1. Start the agent in console mode
 ```bash
 cd agents/examples/voice_agents
-python basic_agent.py console 
+python basic_agent_interruption.py console 
 ```
 2. Ensure the agent begins speaking (e.g., greeting).
 3. While the agent is speaking:
